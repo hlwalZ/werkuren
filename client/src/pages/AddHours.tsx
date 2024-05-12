@@ -46,17 +46,20 @@ const AddHours = () => {
     output: string,
     origin: string
   ) => {
-    const newValue: number = event.target.value;
-    const paragraph = document.getElementById(output);
+    const newValue: string = event.target.value;
+    const paragraph: HTMLParagraphElement | any =
+      document.getElementById(output);
     paragraph.textContent = newValue;
   };
 
   return (
     <>
       <section className=" flex">
-        <div className=" bg-indigo-100 m-auto w-2/3">
+        <div className=" bg-indigo-100 m-auto w-2/3 rounded-xl">
           <div className="">
-            <h1 className="text-center">Hoeveel uren heb je gewerkt?</h1>
+            <h1 className="text-center text-3xl mb-10 mt-10">
+              Hoeveel uren heb je besteed?
+            </h1>
             <form className="grid grid-cols-2 gap-4 ">
               <div className="flex place-content-center items-center items-stretch">
                 <label htmlFor="uren-geleerd" className="">
@@ -69,7 +72,7 @@ const AddHours = () => {
                   max="8"
                   min="0"
                   defaultValue="0"
-                  className="accent-orange-600 ml-2 mr-2"
+                  className="accent-pastelGroen ml-2 mr-2"
                   onChange={(event) => {
                     handleUrenGelerdChange(
                       event,
@@ -95,7 +98,7 @@ const AddHours = () => {
                   min="0"
                   max="8"
                   defaultValue="0"
-                  className="accent-purple-600"
+                  className="accent-pastelBlauw"
                   onChange={(event) => {
                     handleUrenGelerdChange(
                       event,

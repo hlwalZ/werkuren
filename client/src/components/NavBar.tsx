@@ -1,14 +1,16 @@
-import React from 'react'
-import { Outlet } from 'react-router-dom'
+import React from "react";
+import { Outlet } from "react-router-dom";
 
 const NavBar = () => {
-    return (
-        <>
-        <div>Hallo</div>
-        <Outlet />
-        </>
-       
-    )
-}
+  return (
+    <>
+      <div className="bg-pastelGrijs bg-opacity-60 mb-5 pb-5 text-2xl text-center">
+        Hallo
+      </div>
 
-export default NavBar
+      <Outlet />
+    </>
+  );
+};
+
+export default NavBar;
