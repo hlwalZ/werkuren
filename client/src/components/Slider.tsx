@@ -25,7 +25,7 @@ const Slider = ({
   max,
 }: sliderProps) => {
   return (
-    <>
+    
     <div className="flex place-content-center">
       <label htmlFor={id} className="">
         {label}:
@@ -47,7 +47,7 @@ const Slider = ({
         0
       </p>
       </div>
-    </>
+    
   );
 };
 
