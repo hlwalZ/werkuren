@@ -49,20 +49,19 @@ const AddHours = () => {
   //                 </p>
   //               </div>
 
-  const submitForm = () => {
+  const submitForm = (event: any) => {
+    event.preventDefault();
     console.log("Data verstuurd");
+
+     
+
+    const urenGeleerd = parseInt((document.getElementById("slider1") as HTMLInputElement).value);
+
+    urenGeleerd >= 0 && urenGeleerd <= 8 ? console.log(urenGeleerd) : console.log("Niet vals spelen!")
   };
 
-  const handleUrenGelerdChange = (
-    event: any,
-    output: string,
-    origin: string
-  ) => {
-    const newValue: string = event.target.value;
-    const paragraph: HTMLParagraphElement | any =
-      document.getElementById(output);
-    paragraph.textContent = newValue;
-  };
+
+
 
   return (
     <>

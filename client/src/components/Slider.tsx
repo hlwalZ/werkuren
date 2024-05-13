@@ -34,8 +34,8 @@ const Slider = ({
         id={id}
         name={name}
         max={max}
-        min="0"
-        defaultValue="0"
+        min={0}
+        defaultValue={0}
         className={`ml-2 mr-2 mb-3 ${accentColor}`}
         onChange={(event) => {
           handleUrenGelerdChange(event, outputID, id);
