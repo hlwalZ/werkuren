@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import Slider from "../components/Slider";
 
 let uren = 0;
 
@@ -7,7 +8,7 @@ const submitForm = (data: any) => {
 };
 
 const AddHours = () => {
-  // we hadden ook useState kunnen gebruiken voor het updaten van de pagina, alleen render je opnieuw daarmee een volledig component, nu voege
+  // we hadden ook useState kunnen gebruiken voor het updaten van de pagina, alleen render je opnieuw daarmee een volledig component, nu voeger
   // useEffect(() => {
   //   const rangeInput: any = document.getElementById("uren-geleerd");
   //   const outputParagraph: any = document.getElementById("output-geleerd");
@@ -41,6 +42,17 @@ const AddHours = () => {
 
   // const dynamischRef: any = useRef(null);
 
+  // <div className="flex place-content-center items-center items-stretch">
+  //                 {/* <p id="output-geleerd" className="inline " ref={dynamischRef}> */}
+  //                 <p id="output-geleerd" className="inline">
+  //                   0
+  //                 </p>
+  //               </div>
+
+  const submitForm = () => {
+    console.log("Data verstuurd");
+  };
+
   const handleUrenGelerdChange = (
     event: any,
     output: string,
@@ -54,62 +66,96 @@ const AddHours = () => {
 
   return (
     <>
-      <section className=" flex">
+      <section className=" flex ">
         <div className=" bg-indigo-100 m-auto w-2/3 rounded-xl">
-          <div className="">
+          <div className="mb-10">
             <h1 className="text-center text-3xl mb-10 mt-10">
               Hoeveel uren heb je besteed?
             </h1>
-            <form className="grid grid-cols-2 gap-4 ">
-              <div className="flex place-content-center items-center items-stretch">
-                <label htmlFor="uren-geleerd" className="">
-                  Uren geleerd:
-                </label>
-                <input
-                  type="range"
-                  id="uren-geleerd"
+
+            <div className="grid grid-cols-2 overflow-hidden">
+              <p className="flex place-content-center">Uren</p>
+              <p className="flex place-content-center">Kwartieren</p>
+            </div>
+
+            <form
+              onSubmit={submitForm}
+              className="grid grid-cols-2 overflow-hidden"
+            >
+              <div className="flex place-content-center ">
+                <Slider
                   name="uren-geleerd"
-                  max="8"
-                  min="0"
-                  defaultValue="0"
-                  className="accent-pastelGroen ml-2 mr-2"
-                  onChange={(event) => {
-                    handleUrenGelerdChange(
-                      event,
-                      "output-geleerd",
-                      "uren-geleerd"
-                    );
-                  }}
+                  accentColor="accent-pastelGoud"
+                  id="slider1"
+                  outputID="output-geleerd-uren"
+                  label="Geleerd"
+                  max={8}
                 />
-                {/* <p id="output-geleerd" className="inline " ref={dynamischRef}> */}
-                <p id="output-geleerd" className="inline">
-                  0
-                </p>
               </div>
 
-              <div className="m-0">
-                <label htmlFor="uren-gewerkt" className="">
-                  Uren gewerkt:
-                </label>
-                <input
-                  type="range"
-                  id="uren-gewerkt"
-                  name="uren-gewerkt"
-                  min="0"
-                  max="8"
-                  defaultValue="0"
-                  className="accent-pastelBlauw"
-                  onChange={(event) => {
-                    handleUrenGelerdChange(
-                      event,
-                      "output-gewerkt",
-                      "uren-gewerkt"
-                    );
-                  }}
+              <div className="flex place-content-center ">
+                <Slider
+                  name="kwart-geleerd"
+                  accentColor="accent-pastelGoud"
+                  id="slider2"
+                  outputID="output-geleerd-kwart"
+                  label="Geleerd"
+                  max={4}
                 />
-                <p id="output-gewerkt" className="inline ">
-                  0
-                </p>
+              </div>
+
+              <div className="flex place-content-center ">
+                <Slider
+                  name="uren-gewerkt"
+                  accentColor="accent-pastelRoze"
+                  id="slider3"
+                  outputID="output-gewerkt-uren"
+                  label="Gewerkt"
+                  max={8}
+                />
+              </div>
+
+              <div className="flex place-content-center ">
+                <Slider
+                  name="kwart-gewerkt"
+                  accentColor="accent-pastelRoze"
+                  id="slider4"
+                  outputID="output-gewerkt-kwart"
+                  label="Gewerkt"
+                  max={4}
+                />
+              </div>
+
+              <div className="flex place-content-center ">
+                <Slider
+                  name="uren-onderzocht"
+                  accentColor="accent-pastelBlauw"
+                  id="slider5"
+                  outputID="output-onderzocht-uren"
+                  label="Onderzocht"
+                  max={8}
+                />
+              </div>
+
+              <div className="flex place-content-center ">
+                <Slider
+                  name="kwart-onderzocht"
+                  accentColor="accent-pastelBlauw"
+                  id="slider6"
+                  outputID="output-onderzocht-kwart"
+                  label="Onderzocht"
+                  max={4}
+                />
+              </div>
+
+              <div className="col-span-2 flex place-content-center pt-10">
+                <button
+                  className="bg-pastelGroen opacity-70 pl-5 pr-5 pt-2.5 pb-2.5 hover:opacity-100 rounded-full  "
+                  type="button"
+                  onClick={submitForm}
+                >
+                  Versturen
+                </button>
               </div>
             </form>
           </div>
