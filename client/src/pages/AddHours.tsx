@@ -81,8 +81,9 @@ const AddHours = () => {
               onSubmit={submitForm}
               className="grid grid-cols-2 overflow-hidden"
             >
-              <div className="flex place-content-center ">
-                <Slider
+              
+                <Slider 
+                  
                   name="uren-geleerd"
                   accentColor="accent-pastelGoud"
                   id="slider1"
@@ -90,9 +91,9 @@ const AddHours = () => {
                   label="Geleerd"
                   max={8}
                 />
-              </div>
+             
 
-              <div className="flex place-content-center ">
+              
                 <Slider
                   name="kwart-geleerd"
                   accentColor="accent-pastelGoud"
@@ -101,9 +102,9 @@ const AddHours = () => {
                   label="Geleerd"
                   max={4}
                 />
-              </div>
+             
 
-              <div className="flex place-content-center ">
+             
                 <Slider
                   name="uren-gewerkt"
                   accentColor="accent-pastelRoze"
@@ -112,9 +113,9 @@ const AddHours = () => {
                   label="Gewerkt"
                   max={8}
                 />
-              </div>
+             
 
-              <div className="flex place-content-center ">
+            
                 <Slider
                   name="kwart-gewerkt"
                   accentColor="accent-pastelRoze"
@@ -123,9 +124,9 @@ const AddHours = () => {
                   label="Gewerkt"
                   max={4}
                 />
-              </div>
+             
 
-              <div className="flex place-content-center ">
+             
                 <Slider
                   name="uren-onderzocht"
                   accentColor="accent-pastelBlauw"
@@ -134,9 +135,9 @@ const AddHours = () => {
                   label="Onderzocht"
                   max={8}
                 />
-              </div>
+              
 
-              <div className="flex place-content-center ">
+              
                 <Slider
                   name="kwart-onderzocht"
                   accentColor="accent-pastelBlauw"
@@ -145,7 +146,7 @@ const AddHours = () => {
                   label="Onderzocht"
                   max={4}
                 />
-              </div>
+              
 
               <div className="col-span-2 flex place-content-center pt-10">
                 <button
