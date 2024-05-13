@@ -53,7 +53,7 @@ const AddHours = () => {
     event.preventDefault();
     console.log("Data verstuurd");
 
-     
+// De waarde van een HTMLInputElement wordt altijd gezien als een string, zelfs als je input type gezet is naar nummer! Jammer dan maar gewoon een praseInt gebruiken, je kan als tweede waarde met parseInt een base meegeven zoals 1 of 10
 
     const urenGeleerd = parseInt((document.getElementById("slider1") as HTMLInputElement).value);
 
