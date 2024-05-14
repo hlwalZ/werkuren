@@ -46,12 +46,6 @@ const AddHours = () => {
   // De waarde van een HTMLInputElement wordt altijd gezien als een string, zelfs als je input type gezet is naar nummer! Jammer dan maar gewoon een praseInt gebruiken, je kan als tweede waarde met parseInt een base meegeven zoals 1 of 10
 
   // Er is vast een betere manier maar ik heb geen zin erin om dit te automatiseren
-  const s1 = "";
-  const s2 = "slider2";
-  const s3 = "slider3";
-  const s4 = "slider4";
-  const s5 = "slider5";
-  const s6 = "slider6";
 
   const getParagraphValue = (id: string) => {
     return parseInt(
@@ -80,6 +74,10 @@ const AddHours = () => {
     ongeldigeData === false
       ? console.log(dataUren, dataKwart)
       : console.log("Ja wat denk je zelf schat, verkeerde waardes invoeren?");
+
+    let obj = { uren: `${dataUren}`, kwartieren: `${dataKwart}` };
+
+    console.log(JSON.stringify(obj));
   };
 
   return (
