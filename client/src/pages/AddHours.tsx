@@ -1,12 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import Slider from "../components/Slider";
 
-let uren = 0;
-
-const submitForm = (data: any) => {
-  console.log(data);
-};
-
 const AddHours = () => {
   // we hadden ook useState kunnen gebruiken voor het updaten van de pagina, alleen render je opnieuw daarmee een volledig component, nu voeger
   // useEffect(() => {
@@ -49,19 +43,44 @@ const AddHours = () => {
   //                 </p>
   //               </div>
 
-  const submitForm = (event: any) => {
-    event.preventDefault();
-    console.log("Data verstuurd");
+  // De waarde van een HTMLInputElement wordt altijd gezien als een string, zelfs als je input type gezet is naar nummer! Jammer dan maar gewoon een praseInt gebruiken, je kan als tweede waarde met parseInt een base meegeven zoals 1 of 10
 
-// De waarde van een HTMLInputElement wordt altijd gezien als een string, zelfs als je input type gezet is naar nummer! Jammer dan maar gewoon een praseInt gebruiken, je kan als tweede waarde met parseInt een base meegeven zoals 1 of 10
+  // Er is vast een betere manier maar ik heb geen zin erin om dit te automatiseren
+  const s1 = "";
+  const s2 = "slider2";
+  const s3 = "slider3";
+  const s4 = "slider4";
+  const s5 = "slider5";
+  const s6 = "slider6";
 
-    const urenGeleerd = parseInt((document.getElementById("slider1") as HTMLInputElement).value);
-
-    urenGeleerd >= 0 && urenGeleerd <= 8 ? console.log(urenGeleerd) : console.log("Niet vals spelen!")
+  const getParagraphValue = (id: string) => {
+    return parseInt(
+      (document.getElementById(`${id}`) as HTMLInputElement).value
+    );
   };
 
+  const submitForm = (event: any) => {
+    event.preventDefault();
+    const dataUren = [];
+    const dataKwart = [];
+    let ongeldigeData = false;
+    // Dit is ook echt zo mega scuffed hahaha
+    for (let i = 1; i < 7; i++) {
+      let waarde: number = getParagraphValue(`slider${i}`);
+      waarde >= 0 && waarde <= 8
+        ? dataUren.push(waarde)
+        : (ongeldigeData = true);
+      i++;
+      waarde = getParagraphValue(`slider${i}`);
+      waarde >= 0 && waarde <= 8
+        ? dataKwart.push(waarde)
+        : (ongeldigeData = true);
+    }
 
-
+    ongeldigeData === false
+      ? console.log(dataUren, dataKwart)
+      : console.log("Ja wat denk je zelf schat, verkeerde waardes invoeren?");
+  };
 
   return (
     <>
@@ -81,72 +100,59 @@ const AddHours = () => {
               onSubmit={submitForm}
               className="grid grid-cols-2 overflow-hidden"
             >
-              
-                <Slider 
-                  
-                  name="uren-geleerd"
-                  accentColor="accent-pastelGoud"
-                  id="slider1"
-                  outputID="output-geleerd-uren"
-                  label="Geleerd"
-                  max={8}
-                />
-             
+              <Slider
+                name="uren-geleerd"
+                accentColor="accent-pastelGoud"
+                id="slider1"
+                outputID="output-geleerd-uren"
+                label="Geleerd"
+                max={8}
+              />
 
-              
-                <Slider
-                  name="kwart-geleerd"
-                  accentColor="accent-pastelGoud"
-                  id="slider2"
-                  outputID="output-geleerd-kwart"
-                  label="Geleerd"
-                  max={4}
-                />
-             
+              <Slider
+                name="kwart-geleerd"
+                accentColor="accent-pastelGoud"
+                id="slider2"
+                outputID="output-geleerd-kwart"
+                label="Geleerd"
+                max={4}
+              />
 
-             
-                <Slider
-                  name="uren-gewerkt"
-                  accentColor="accent-pastelRoze"
-                  id="slider3"
-                  outputID="output-gewerkt-uren"
-                  label="Gewerkt"
-                  max={8}
-                />
-             
+              <Slider
+                name="uren-gewerkt"
+                accentColor="accent-pastelRoze"
+                id="slider3"
+                outputID="output-gewerkt-uren"
+                label="Gewerkt"
+                max={8}
+              />
 
-            
-                <Slider
-                  name="kwart-gewerkt"
-                  accentColor="accent-pastelRoze"
-                  id="slider4"
-                  outputID="output-gewerkt-kwart"
-                  label="Gewerkt"
-                  max={4}
-                />
-             
+              <Slider
+                name="kwart-gewerkt"
+                accentColor="accent-pastelRoze"
+                id="slider4"
+                outputID="output-gewerkt-kwart"
+                label="Gewerkt"
+                max={4}
+              />
 
-             
-                <Slider
-                  name="uren-onderzocht"
-                  accentColor="accent-pastelBlauw"
-                  id="slider5"
-                  outputID="output-onderzocht-uren"
-                  label="Onderzocht"
-                  max={8}
-                />
-              
+              <Slider
+                name="uren-onderzocht"
+                accentColor="accent-pastelBlauw"
+                id="slider5"
+                outputID="output-onderzocht-uren"
+                label="Onderzocht"
+                max={8}
+              />
 
-              
-                <Slider
-                  name="kwart-onderzocht"
-                  accentColor="accent-pastelBlauw"
-                  id="slider6"
-                  outputID="output-onderzocht-kwart"
-                  label="Onderzocht"
-                  max={4}
-                />
-              
+              <Slider
+                name="kwart-onderzocht"
+                accentColor="accent-pastelBlauw"
+                id="slider6"
+                outputID="output-onderzocht-kwart"
+                label="Onderzocht"
+                max={4}
+              />
 
               <div className="col-span-2 flex place-content-center pt-10">
                 <button

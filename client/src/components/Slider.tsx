@@ -25,7 +25,6 @@ const Slider = ({
   max,
 }: sliderProps) => {
   return (
-    
     <div className="flex place-content-center">
       <label htmlFor={id} className="">
         {label}:
@@ -42,12 +41,11 @@ const Slider = ({
           handleUrenGelerdChange(event, outputID, id);
         }}
       />
-      
+
       <p id={outputID} className="inline ">
         0
       </p>
-      </div>
-    
+    </div>
   );
 };
 
