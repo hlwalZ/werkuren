@@ -53,11 +53,24 @@ const AddHours = () => {
     );
   };
 
+  const getDay = () => {
+    let today: Date | string = new Date();
+    let dd: number | string = today.getDate();
+    let mm: number | string = today.getMonth();
+    let yyyy: number | string = today.getFullYear();
+    if (dd < 10) dd = "0" + dd;
+    if (mm < 10) mm = "0" + mm;
+    today = dd + "/" + mm + "/" + yyyy;
+    return today;
+  };
+
   const submitForm = (event: any) => {
     event.preventDefault();
-    const dataUren = [];
-    const dataKwart = [];
+    let dataUren = [];
+    let dataKwart = [];
+    let obj;
     let ongeldigeData = false;
+
     // Dit is ook echt zo mega scuffed hahaha
     for (let i = 1; i < 7; i++) {
       let waarde: number = getParagraphValue(`slider${i}`);
@@ -72,12 +85,14 @@ const AddHours = () => {
     }
 
     ongeldigeData === false
-      ? console.log(dataUren, dataKwart)
-      : console.log("Ja wat denk je zelf schat, verkeerde waardes invoeren?");
+      ? (obj = {
+          dag: `${getDay()}`,
+          uren: `${dataUren}`,
+          kwartieren: `${dataKwart}`,
+        })
+      : console.log("Niet vervalsen je data");
 
-    let obj = { uren: `${dataUren}`, kwartieren: `${dataKwart}` };
-
-    console.log(JSON.stringify(obj));
+    if (!ongeldigeData) console.log(obj);
   };
 
   return (
