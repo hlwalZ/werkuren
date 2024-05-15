@@ -6,23 +6,23 @@ const SpiderChart = () => {
     const data = [
         {
           "soort": "geleerd",
-          "totaal": 8.5,
+          "totaal": 13.5,
           
         },
         {
           "soort": "gewerkt",
-          "totaal": 5
+          "totaal": 4.25
         },
         {
           "soort": "onderzocht",
-          "totaal": 6
+          "totaal": 3
         },
        
       ]
 
   return (
 
-<div style={{height: "300px", width: "600px"}}>
+<div style={{height: "400px", width: "800px"}}>
     <ResponsiveRadar
         data={data}
         keys={[ 'totaal' ]}
@@ -34,7 +34,7 @@ const SpiderChart = () => {
         dotSize={10}
         dotColor={{ theme: 'background' }}
         dotBorderWidth={2}
-        colors={["#D35879"]}
+        colors={["#DBBA02"]}
         blendMode="multiply"
         motionConfig="wobbly"
         // legends={[

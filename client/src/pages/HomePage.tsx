@@ -25,10 +25,10 @@ const HomePage = () => {
   ];
   data.forEach((element) => { console.log(element)})
   return (
-    <>
+    <div className="flex items-center justify-center">
       <BarChart data={data} />
       <SpiderChart data={data} />
-    </>
+    </div>
   );
 };
 

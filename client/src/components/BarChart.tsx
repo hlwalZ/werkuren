@@ -19,7 +19,7 @@ const BarChart = ({ data }: barData) => {
   
   return (
     
-    <div style={{ height: "300px", width: "600px" }}>
+    <div style={{ height: "400px", width: "800px" }}>
       <ResponsiveBar
         data={data}
         keys={["geleerd", "gewerkt", "onderzocht"]}
