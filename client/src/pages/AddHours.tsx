@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import Slider from "../components/Slider";
 
-const AddHours = () => {
+const AddHours = ({ addHoursSubmit }: any) => {
   // we hadden ook useState kunnen gebruiken voor het updaten van de pagina, alleen render je opnieuw daarmee een volledig component, nu voeger
   // useEffect(() => {
   //   const rangeInput: any = document.getElementById("uren-geleerd");
@@ -86,13 +86,13 @@ const AddHours = () => {
 
     ongeldigeData === false
       ? (obj = {
-          dag: `${getDay()}`,
-          uren: `${dataUren}`,
-          kwartieren: `${dataKwart}`,
+          dag: getDay(),
+          uren: dataUren,
+          kwartieren: dataKwart,
         })
       : console.log("Niet vervalsen je data");
 
-    if (!ongeldigeData) console.log(obj);
+    if (!ongeldigeData) addHoursSubmit(obj);
   };
 
   return (
