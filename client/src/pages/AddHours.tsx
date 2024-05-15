@@ -1,7 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 import Slider from "../components/Slider";
+import { useNavigate } from "react-router-dom";
 
 const AddHours = ({ addHoursSubmit }: any) => {
+  const navigate = useNavigate();
   // we hadden ook useState kunnen gebruiken voor het updaten van de pagina, alleen render je opnieuw daarmee een volledig component, nu voeger
   // useEffect(() => {
   //   const rangeInput: any = document.getElementById("uren-geleerd");
@@ -93,6 +95,7 @@ const AddHours = ({ addHoursSubmit }: any) => {
       : console.log("Niet vervalsen je data");
 
     if (!ongeldigeData) addHoursSubmit(obj);
+    return navigate("/");
   };
 
   return (
@@ -168,13 +171,10 @@ const AddHours = ({ addHoursSubmit }: any) => {
               />
 
               <div className="col-span-2 flex place-content-center pt-10">
-                <button
+                <input
                   className="bg-pastelGroen opacity-70 pl-5 pr-5 pt-2.5 pb-2.5 hover:opacity-100 rounded-full  "
-                  type="button"
-                  onClick={submitForm}
-                >
-                  Versturen
-                </button>
+                  type="submit"
+                ></input>
               </div>
             </form>
           </div>
