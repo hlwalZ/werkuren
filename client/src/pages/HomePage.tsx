@@ -1,4 +1,5 @@
 import BarChart from "../components/BarChart";
+import SpiderChart from "../components/SpiderChart";
 import { useState, useEffect } from "react";
 
 const HomePage = () => {
@@ -26,6 +27,7 @@ const HomePage = () => {
   return (
     <>
       <BarChart data={data} />
+      <SpiderChart data={data} />
     </>
   );
 };

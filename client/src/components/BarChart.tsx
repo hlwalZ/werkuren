@@ -1,6 +1,6 @@
 import { BarDatum, ResponsiveBar } from "@nivo/bar";
 import { useEffect, useState } from "react";
-import tailwindConfig from "../"
+
 
 
 
@@ -19,7 +19,7 @@ const BarChart = ({ data }: barData) => {
   
   return (
     
-    <div style={{ height: "500px", width: "1000px" }}>
+    <div style={{ height: "300px", width: "600px" }}>
       <ResponsiveBar
         data={data}
         keys={["geleerd", "gewerkt", "onderzocht"]}
