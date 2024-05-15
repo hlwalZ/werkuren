@@ -174,7 +174,8 @@ const AddHours = ({ addHoursSubmit }: any) => {
                 <input
                   className="bg-pastelGroen opacity-70 pl-5 pr-5 pt-2.5 pb-2.5 hover:opacity-100 rounded-full  "
                   type="submit"
-                ></input>
+                  value="Toevoegen"
+                />
               </div>
             </form>
           </div>
