@@ -118,7 +118,7 @@ const AddHours = ({ addHoursSubmit }: any) => {
             >
               <Slider
                 name="uren-geleerd"
-                accentColor="accent-pastelGoud"
+                accentColor="accent-pastelGroen"
                 id="slider1"
                 outputID="output-geleerd-uren"
                 label="Geleerd"
@@ -127,7 +127,7 @@ const AddHours = ({ addHoursSubmit }: any) => {
 
               <Slider
                 name="kwart-geleerd"
-                accentColor="accent-pastelGoud"
+                accentColor="accent-pastelGroen"
                 id="slider2"
                 outputID="output-geleerd-kwart"
                 label="Geleerd"
@@ -172,7 +172,7 @@ const AddHours = ({ addHoursSubmit }: any) => {
 
               <div className="col-span-2 flex place-content-center pt-10">
                 <input
-                  className="bg-pastelGroen opacity-70 pl-5 pr-5 pt-2.5 pb-2.5 hover:opacity-100 rounded-full  "
+                  className="bg-pastelGoud opacity-70 pl-5 pr-5 pt-2.5 pb-2.5 hover:opacity-100 rounded-full  "
                   type="submit"
                   value="Toevoegen"
                 />

@@ -6,7 +6,7 @@ export default {
       colors: {
         pastelBlauw: "#413FA3",
         pastelGoud: "#DBBA02",
-        pastelGroen: "#2BC693",
+        pastelGroen: "#1d8764",
         pastelRoze: "#D35879",
         pastelGrijs: "#8687B9",
       },

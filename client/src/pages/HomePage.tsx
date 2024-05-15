@@ -2,24 +2,29 @@ import BarChart from "../components/BarChart";
 import { useState, useEffect } from "react";
 
 const HomePage = () => {
-  const data2 = () => {
+  const data2 = async () => {
     const getData = async () => {
       const res = await fetch("/api/tijden");
+      if (!res.ok) {
+        throw new Error("Iets met het netwerk ging fout")
+      }
       const data = await res.json();
+      // console.log(data)
       return data;
     };
-    getData();
+    return await getData();
   };
+  const antwoord = data2()
+    
 
   const data = [
-    { category: "A", value: 10 },
-    { category: "B", value: 20 },
-    { category: "C", value: 30 },
+    { dag: "13/04/2024", geleerd: 4, gewerkt: 2, onderzocht: 1},
+    { dag: "14/04/2024", geleerd: 6, gewerkt: 1.25, onderzocht: 0},
+    { dag: "15/04/2024", geleerd: 3.5, gewerkt: 1, onderzocht: 2},
   ];
-
+  data.forEach((element) => { console.log(element)})
   return (
     <>
-      <div>Dit is de home page</div>
       <BarChart data={data} />
     </>
   );
