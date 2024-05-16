@@ -131,7 +131,7 @@ const AddHours = ({ addHoursSubmit }: any) => {
                 id="slider2"
                 outputID="output-geleerd-kwart"
                 label="Geleerd"
-                max={4}
+                max={3}
               />
 
               <Slider
@@ -149,7 +149,7 @@ const AddHours = ({ addHoursSubmit }: any) => {
                 id="slider4"
                 outputID="output-gewerkt-kwart"
                 label="Gewerkt"
-                max={4}
+                max={3}
               />
 
               <Slider
@@ -167,7 +167,7 @@ const AddHours = ({ addHoursSubmit }: any) => {
                 id="slider6"
                 outputID="output-onderzocht-kwart"
                 label="Onderzocht"
-                max={4}
+                max={3}
               />
 
               <div className="col-span-2 flex place-content-center pt-10">

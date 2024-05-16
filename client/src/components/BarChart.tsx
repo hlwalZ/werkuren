@@ -1,9 +1,6 @@
 import { BarDatum, ResponsiveBar } from "@nivo/bar";
 import { useEffect, useState } from "react";
 
-
-
-
 interface categorieWaarde extends BarDatum {
   dag: string;
   geleerd: number;
@@ -16,10 +13,8 @@ interface barData {
 }
 
 const BarChart = ({ data }: barData) => {
-  
   return (
-    
-    <div style={{ height: "400px", width: "800px" }}>
+    <div style={{ height: "300px", width: "600px" }}>
       <ResponsiveBar
         data={data}
         keys={["geleerd", "gewerkt", "onderzocht"]}
@@ -28,7 +23,7 @@ const BarChart = ({ data }: barData) => {
         padding={0.3}
         valueScale={{ type: "linear" }}
         indexScale={{ type: "band", round: true }}
-        colors={["#1d8764", "#413FA3" , "#D35879"]}
+        colors={["#1d8764", "#413FA3", "#D35879"]}
         // defs={[
         //   {
         //     id: "dots",
@@ -125,7 +120,6 @@ const BarChart = ({ data }: barData) => {
       />
     </div>
   );
-  
 };
 
 export default BarChart;

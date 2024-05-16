@@ -1,38 +1,33 @@
-import { ResponsiveRadar } from "@nivo/radar"
-
+import { ResponsiveRadar } from "@nivo/radar";
 
 const SpiderChart = () => {
-
-    const data = [
-        {
-          "soort": "geleerd",
-          "totaal": 13.5,
-          
-        },
-        {
-          "soort": "gewerkt",
-          "totaal": 4.25
-        },
-        {
-          "soort": "onderzocht",
-          "totaal": 3
-        },
-       
-      ]
+  const data = [
+    {
+      soort: "geleerd",
+      totaal: 4.5,
+    },
+    {
+      soort: "gewerkt",
+      totaal: 4.25,
+    },
+    {
+      soort: "onderzocht",
+      totaal: 3,
+    },
+  ];
 
   return (
-
-<div style={{height: "400px", width: "800px"}}>
-    <ResponsiveRadar
+    <div style={{ height: "300px", width: "600px" }}>
+      <ResponsiveRadar
         data={data}
-        keys={[ 'totaal' ]}
+        keys={["totaal"]}
         indexBy="soort"
         valueFormat=">-.2f"
         margin={{ top: 70, right: 80, bottom: 40, left: 80 }}
-        borderColor={{ from: 'color' }}
+        borderColor={{ from: "color" }}
         gridLabelOffset={36}
         dotSize={10}
-        dotColor={{ theme: 'background' }}
+        dotColor={{ theme: "background" }}
         dotBorderWidth={2}
         colors={["#DBBA02"]}
         blendMode="multiply"
@@ -58,9 +53,9 @@ const SpiderChart = () => {
         //         ]
         //     }
         // ]}
-    />
+      />
     </div>
-  )
-}
+  );
+};
 
-export default SpiderChart
+export default SpiderChart;
