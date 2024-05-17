@@ -12,12 +12,46 @@ interface barData {
   data: categorieWaarde[];
 }
 
-const BarChart = ({ data }: barData) => {
+const BarChart = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    // Define an asynchronous function to fetch data
+    async function fetchData() {
+      try {
+        // Fetch data from the API endpoint
+        const response = await fetch("/api/tijden");
+        // Parse the JSON response
+        const jsonData = await response.json();
+        const lastSevenData = await jsonData.slice(-7);
+        // Update the component state with the fetched data
+
+        const transformedData = await lastSevenData.map((item: any) => ({
+          dag: item.dag, // Use the dag property from the original data
+          Geleerd: item.uren[0], // First element of the uren array for Geleerd
+          Gewerkt: item.uren[1], // Second element of the uren array for Gewerkt
+          Onderzocht: item.uren[2], // Third element of the uren array for Onderzocht
+        }));
+        console.log(transformedData);
+        setData(transformedData);
+      } catch (error) {
+        // Handle any errors that occur during data fetching
+        console.error("Error fetching data:", error);
+      }
+    }
+
+    // Call the fetchData function when the component mounts
+    fetchData();
+
+    // Since we only want to fetch data once when the component mounts,
+    // we provide an empty dependency array to useEffect
+  }, []);
+
   return (
     <div style={{ height: "300px", width: "600px" }}>
       <ResponsiveBar
         data={data}
-        keys={["geleerd", "gewerkt", "onderzocht"]}
+        keys={["Geleerd", "Gewerkt", "Onderzocht"]}
         indexBy="dag"
         margin={{ top: 50, right: 130, bottom: 50, left: 60 }}
         padding={0.3}
