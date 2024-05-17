@@ -1,5 +1,4 @@
 import { ResponsiveCalendar } from "@nivo/calendar";
-import styles from "../index.css";
 
 const Calendar = () => {
   const data = [

@@ -1,11 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.calendar-container {
-  @apply bg-transparent;
-}
-
-.calendar-container svg {
-  @apply bg-transparent;
-}

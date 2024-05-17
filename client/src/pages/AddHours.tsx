@@ -4,6 +4,48 @@ import { useNavigate } from "react-router-dom";
 
 const AddHours = ({ addHoursSubmit }: any) => {
   const navigate = useNavigate();
+
+  const fetchTotals = async () => {
+    const res = await fetch("/api/totaal");
+    const data = await res.json();
+    return data;
+  };
+
+  // const data = fetchTotals().then((value) => {
+  //   console.log("de data is er");
+  //   // "We hebben de data ontvangen, werkt de console log in de globale scope nu wel?"
+  // });
+
+  // const danZo = async () => {
+  //   try {
+  //     const data
+  //   }
+  // }
+  // const fakeData = [
+  //   {
+  //     id: "Geleerd",
+  //     totaal: 3,
+  //   },
+  //   {
+  //     id: "Gewerkt",
+  //     totaal: 2,
+  //   },
+  //   {
+  //     id: "Onderzocht",
+  //     totaal: 1,
+  //   },
+  // ];
+
+  let data: any;
+  (async () => {
+    try {
+      data = await fetchTotals();
+      console.log(data);
+    } catch {
+      console.log("unexpected error");
+    }
+  })();
+
   // we hadden ook useState kunnen gebruiken voor het updaten van de pagina, alleen render je opnieuw daarmee een volledig component, nu voeger
   // useEffect(() => {
   //   const rangeInput: any = document.getElementById("uren-geleerd");
@@ -55,47 +97,99 @@ const AddHours = ({ addHoursSubmit }: any) => {
     );
   };
 
-  const getDay = () => {
+  const switchDate = (date: number) => {
+    switch (date) {
+      case 1:
+        return "Ma";
+      case 2:
+        return "Di";
+      case 3:
+        return "Wo";
+      case 4:
+        return "Do";
+      case 5:
+        return "Vr";
+      case 6:
+        return "Za";
+      case 7:
+        return "Zo";
+      default:
+        return "Go Cry TypeScript, also the world exploded because there is no day";
+    }
+  };
+
+  const getDatum = () => {
     let today: Date | string = new Date();
+    let date: number | string = today.getDay();
+    date = switchDate(date);
     let dd: number | string = today.getDate();
     let mm: number | string = today.getMonth();
     let yyyy: number | string = today.getFullYear();
     if (dd < 10) dd = "0" + dd;
     if (mm < 10) mm = "0" + mm;
-    today = dd + "/" + mm + "/" + yyyy;
-    return today;
+    today = yyyy + "/" + mm + "/" + dd;
+    return [today, date];
   };
 
   const submitForm = (event: any) => {
     event.preventDefault();
-    let dataUren = [];
-    let dataKwart = [];
+    let urenArray = [];
+    let urenTotaal = 0;
+    let arrayCounter = 0;
     let obj;
     let ongeldigeData = false;
 
     // Dit is ook echt zo mega scuffed hahaha
-    for (let i = 1; i < 7; i++) {
-      let waarde: number = getParagraphValue(`slider${i}`);
-      waarde >= 0 && waarde <= 8
-        ? dataUren.push(waarde)
-        : (ongeldigeData = true);
+    for (let i = 0; i < 6; i++) {
+      let waardeUren: number = getParagraphValue(`slider${i + 1}`);
+      if (waardeUren >= 0 && waardeUren <= 8) {
+        urenTotaal = waardeUren;
+      } else ongeldigeData = true;
+
+      let waardeKwart = getParagraphValue(`slider${i + 2}`);
+      if (waardeKwart >= 0 && waardeKwart <= 3) {
+        urenTotaal += waardeKwart * 0.25;
+      } else ongeldigeData = true;
+
+      urenArray[arrayCounter] = urenTotaal;
+      urenTotaal = 0;
+      arrayCounter++;
       i++;
-      waarde = getParagraphValue(`slider${i}`);
-      waarde >= 0 && waarde <= 8
-        ? dataKwart.push(waarde)
-        : (ongeldigeData = true);
     }
+
+    for (let i = 0; i < urenArray.length; i++) {
+      urenTotaal += urenArray[i];
+
+      data[i].totaal += urenArray[i];
+
+      (async () => {
+        await fetch(`/api/totaal/${data[i].id}`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data[i]),
+        });
+      })();
+    }
+    console.log(urenArray);
+    console.log(data);
+
+    const [today, date] = getDatum();
 
     ongeldigeData === false
       ? (obj = {
-          dag: getDay(),
-          uren: dataUren,
-          kwartieren: dataKwart,
+          datum: today,
+          dag: date,
+          uren: urenArray,
+          totaal: urenTotaal,
         })
       : console.log("Niet vervalsen je data");
 
-    if (!ongeldigeData) addHoursSubmit(obj);
-    return navigate("/");
+    if (!ongeldigeData) {
+      addHoursSubmit(obj);
+      return navigate("/");
+    }
   };
 
   return (
