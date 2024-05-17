@@ -125,6 +125,7 @@ const AddHours = ({ addHoursSubmit }: any) => {
     let dd: number | string = today.getDate();
     let mm: number | string = today.getMonth();
     let yyyy: number | string = today.getFullYear();
+    mm++;
     if (dd < 10) dd = "0" + dd;
     if (mm < 10) mm = "0" + mm;
     today = yyyy + "/" + mm + "/" + dd;

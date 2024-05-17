@@ -2,80 +2,31 @@
   "totaal": [
     {
       "id": "Geleerd",
-      "totaal": 73.5
+      "totaal": 6
     },
     {
       "id": "Gewerkt",
-      "totaal": 70.25
+      "totaal": 12
     },
     {
       "id": "Onderzocht",
-      "totaal": 71.25
+      "totaal": 1.25
     }
   ],
   "tijden": [
     {
-      "id": "39eb",
-      "datum": "2024/04/17",
-      "dag": "Vr",
-      "uren": [3.75, 6.25, 1.25],
-      "totaal": 11.25
-    },
-    {
-      "id": "9319",
-      "datum": "2024/04/17",
-      "dag": "Vr",
-      "uren": [4, 4, 4],
-      "totaal": 12
-    },
-    {
-      "id": "3931",
-      "datum": "2024/04/17",
-      "dag": "Zo",
-      "uren": [8.25, 1.25, 1.25],
-      "totaal": 10.75
-    },
-    {
-      "id": "601d",
-      "datum": "2024/04/17",
-      "dag": "Za",
-      "uren": [4.25, 3.25, 2.25],
-      "totaal": 9.75
-    },
-    {
-      "id": "f62e",
-      "datum": "2024/04/17",
-      "dag": "Vr",
-      "uren": [4.25, 4.25, 2.25],
-      "totaal": 10.75
-    },
-    {
-      "id": "d0a4",
-      "datum": "2024/04/17",
+      "id": "1694",
+      "datum": "2024/05/16",
       "dag": "Do",
-      "uren": [0.25, 1.25, 2.25],
-      "totaal": 3.75
+      "uren": [1, 6, 0],
+      "totaal": 7
     },
     {
-      "id": "acc3",
-      "datum": "2024/04/17",
-      "dag": "Wo",
-      "uren": [1, 0, 0],
-      "totaal": 1
-    },
-    {
-      "id": "daf4",
-      "datum": "2024/04/17",
-      "dag": "Di",
-      "uren": [2, 0, 0],
-      "totaal": 2
-    },
-    {
-      "id": "81c3",
-      "datum": "2024/04/17",
-      "dag": "Ma",
-      "uren": [2, 1, 0],
-      "totaal": 3
+      "id": "1694",
+      "datum": "2024/05/17",
+      "dag": "Vr",
+      "uren": [1, 5, 1],
+      "totaal": 7
     }
   ]
 }
