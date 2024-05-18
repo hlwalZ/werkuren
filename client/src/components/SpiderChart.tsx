@@ -1,27 +1,27 @@
 import { ResponsiveRadar } from "@nivo/radar";
-
+import { useEffect, useState } from "react";
 const SpiderChart = () => {
-  const data = [
-    {
-      soort: "geleerd",
-      totaal: 4.5,
-    },
-    {
-      soort: "gewerkt",
-      totaal: 4.25,
-    },
-    {
-      soort: "onderzocht",
-      totaal: 3,
-    },
-  ];
+  const [data, setData] = useState([])
+
+
+  useEffect(() => {
+
+    (async () => {
+      const res = await fetch("/api/totaal")
+      const resData = await res.json();
+      setData(resData);
+    })()
+
+  }, [])
+
+
 
   return (
     <div style={{ height: "300px", width: "600px" }}>
       <ResponsiveRadar
         data={data}
         keys={["totaal"]}
-        indexBy="soort"
+        indexBy="id"
         valueFormat=">-.2f"
         margin={{ top: 70, right: 80, bottom: 40, left: 80 }}
         borderColor={{ from: "color" }}

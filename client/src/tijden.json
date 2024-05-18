@@ -2,15 +2,15 @@
   "totaal": [
     {
       "id": "Geleerd",
-      "totaal": 6
+      "totaal": 2
     },
     {
       "id": "Gewerkt",
-      "totaal": 12
+      "totaal": 11
     },
     {
       "id": "Onderzocht",
-      "totaal": 1.25
+      "totaal": 1
     }
   ],
   "tijden": [
@@ -18,14 +18,22 @@
       "id": "1694",
       "datum": "2024/05/16",
       "dag": "Do",
-      "uren": [1, 6, 0],
+      "uren": [
+        1,
+        6,
+        0
+      ],
       "totaal": 7
     },
     {
       "id": "1694",
       "datum": "2024/05/17",
       "dag": "Vr",
-      "uren": [1, 5, 1],
+      "uren": [
+        1,
+        5,
+        1
+      ],
       "totaal": 7
     }
   ]
