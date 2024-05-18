@@ -1,7 +1,23 @@
 import { ResponsiveCalendar } from "@nivo/calendar";
+import { useState } from "react";
 
 const Calendar = () => {
-  const data = [
+  const [data, setData] = useState([]);
+
+  (async () => {
+    const res = await fetch("/api/tijden")
+    const resData = await res.json();
+   
+    const transformedData = await resData.map((item: any) => ({
+      value: item.totaal,
+      day: item.datum
+    }))
+setData(transformedData)
+
+  })()
+
+
+  const dataRef = [
     {
       value: 8,
       day: "2016-02-06",
@@ -20,8 +36,8 @@ const Calendar = () => {
     <div className="calendar-container h-48 w-full mt-10">
       <ResponsiveCalendar
         data={data}
-        from="2016-01-01"
-        to="2016-12-31"
+        from="2024-01-01"
+        to="2024-12-31"
         emptyColor="rgba(255, 255, 255, 0)"
         colors={["#1d8764", "#413FA3", "#D35879"]}
         margin={{ top: 40, right: 40, left: 40 }}

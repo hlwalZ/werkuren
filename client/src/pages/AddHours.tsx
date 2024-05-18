@@ -128,7 +128,7 @@ const AddHours = ({ addHoursSubmit }: any) => {
     mm++;
     if (dd < 10) dd = "0" + dd;
     if (mm < 10) mm = "0" + mm;
-    today = yyyy + "/" + mm + "/" + dd;
+    today = yyyy + "-" + mm + "-" + dd;
     return [today, date];
   };
 
