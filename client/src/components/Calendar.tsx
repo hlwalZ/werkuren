@@ -5,17 +5,15 @@ const Calendar = () => {
   const [data, setData] = useState([]);
 
   (async () => {
-    const res = await fetch("/api/tijden")
+    const res = await fetch("/api/tijden");
     const resData = await res.json();
-   
+
     const transformedData = await resData.map((item: any) => ({
       value: item.totaal,
-      day: item.datum
-    }))
-setData(transformedData)
-
-  })()
-
+      day: item.datum,
+    }));
+    setData(transformedData);
+  })();
 
   const dataRef = [
     {
