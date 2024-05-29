@@ -27,7 +27,7 @@ const BarChart = () => {
         // Update the component state with the fetched data
 
         const transformedData = await lastSevenData.map((item: any) => ({
-          dag: item.dag, // Use the dag property from the original data
+          dag: item.datum.slice(5), // Use the dag property from the original data
           Geleerd: item.uren[0], // First element of the uren array for Geleerd
           Gewerkt: item.uren[1], // Second element of the uren array for Gewerkt
           Onderzocht: item.uren[2], // Third element of the uren array for Onderzocht
@@ -102,7 +102,7 @@ const BarChart = () => {
           tickSize: 5,
           tickPadding: 5,
           tickRotation: 0,
-          legend: "Dag van de week",
+          legend: "Laatste zeven registraties",
           legendPosition: "middle",
           legendOffset: 32,
           truncateTickAt: 0,
