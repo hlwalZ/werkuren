@@ -22,13 +22,13 @@ import MainLayout from "./layouts/MainLayout";
 // Gebruiken we later wel eens
 
 const addHours = async (hours: any) => {
-  const res = await fetch("/api/tijden", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify(hours),
-  });
+  // const res = await fetch("/api/tijden", {
+  //   method: "POST",
+  //   headers: {
+  //     "Content-Type": "application/json",
+  //   },
+  //   body: JSON.stringify(hours),
+  // });
 };
 
 function App() {

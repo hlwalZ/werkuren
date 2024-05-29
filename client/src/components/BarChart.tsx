@@ -1,16 +1,5 @@
-import { BarDatum, ResponsiveBar } from "@nivo/bar";
+import { ResponsiveBar } from "@nivo/bar";
 import { useEffect, useState } from "react";
-
-interface categorieWaarde extends BarDatum {
-  dag: string;
-  geleerd: number;
-  gewerkt: number;
-  onderzocht: number;
-}
-
-interface barData {
-  data: categorieWaarde[];
-}
 
 const BarChart = () => {
   const [data, setData] = useState([]);
@@ -21,11 +10,11 @@ const BarChart = () => {
         const response = await fetch("/api/tijden");
 
         const jsonData = await response.json();
-        const lastSevenData = await jsonData.slice(-7);
         // Slice laatste zeven registraties
+        const lastSevenData = await jsonData.slice(-7);
         const transformedData = await lastSevenData.map((item: any) => ({
-          dag: item.datum.slice(5),
           // Slice "yyyy-" weg
+          dag: item.datum.slice(5),
           Geleerd: item.uren[0],
           Gewerkt: item.uren[1],
           Onderzocht: item.uren[2],

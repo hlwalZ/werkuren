@@ -1,7 +1,6 @@
 import BarChart from "../components/BarChart";
 import SpiderChart from "../components/SpiderChart";
 import Calendar from "../components/Calendar";
-import { useState, useEffect } from "react";
 
 const HomePage = () => {
   return (

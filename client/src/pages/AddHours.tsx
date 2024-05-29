@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+// import { useState, useEffect, useRef } from "react";
 import Slider from "../components/Slider";
 import { useNavigate } from "react-router-dom";
 
@@ -10,8 +10,24 @@ const AddHours = ({ addHoursSubmit }: any) => {
     const data = await res.json();
     return data;
   };
+  // type res =
+  //   | {
+  //       totaal: {
+  //         id: string;
+  //         totaal: number;
+  //       }[];
+  //       tijden: {
+  //         id: string;
+  //         datum: string;
+  //         dag: string;
+  //         uren: number[];
+  //         totaal: number;
+  //       }[];
+  //     }
+  //   | undefined;
 
   let data: any;
+
   (async () => {
     try {
       data = await fetchTotals();
@@ -47,6 +63,18 @@ const AddHours = ({ addHoursSubmit }: any) => {
         return "Go Cry TypeScript, also the world exploded because there is no day";
     }
   };
+  //   const days: any = {
+  //     1: "Ma",
+  //     2: "Di",
+  //     3: "Wo",
+  //     4: "Do",
+  //     5: "Vr",
+  //     6: "Za",
+  //     7: "Zo",
+  //   };
+
+  //   return days[date.toString()] ?? "No Day?";
+  // };
 
   const getDatum = () => {
     let today: Date | string = new Date();
@@ -196,7 +224,7 @@ const AddHours = ({ addHoursSubmit }: any) => {
 
               <div className="col-span-2 flex place-content-center pt-10">
                 <input
-                  className="bg-pastelGoud opacity-70 pl-5 pr-5 pt-2.5 pb-2.5 hover:opacity-100 rounded-full  "
+                  className="bg-pastelGoud opacity-70 pl-5 pr-5 pt-2.5 pb-2.5 hover:opacity-100 rounded-full"
                   type="submit"
                   value="Toevoegen"
                 />
