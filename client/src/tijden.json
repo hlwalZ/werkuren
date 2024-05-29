@@ -2,15 +2,15 @@
   "totaal": [
     {
       "id": "Geleerd",
-      "totaal": 3
+      "totaal": 11
     },
     {
       "id": "Gewerkt",
-      "totaal": 17
+      "totaal": 16
     },
     {
       "id": "Onderzocht",
-      "totaal": 2.25
+      "totaal": 5
     }
   ],
   "tijden": [
@@ -18,56 +18,43 @@
       "id": "1694",
       "datum": "2024-05-16",
       "dag": "Do",
-      "uren": [
-        1,
-        6,
-        0
-      ],
+      "uren": [1, 6, 0],
       "totaal": 7
     },
     {
       "id": "1694",
       "datum": "2024-05-17",
       "dag": "Vr",
-      "uren": [
-        1,
-        5,
-        1
-      ],
+      "uren": [1, 5, 1],
       "totaal": 7
     },
     {
       "id": "09f5",
       "datum": "2024-05-18",
       "dag": "Za",
-      "uren": [
-        0,
-        1,
-        0
-      ],
+      "uren": [0, 1, 0],
       "totaal": 1
     },
     {
       "id": "1f51",
       "datum": "2024-05-20",
       "dag": "Ma",
-      "uren": [
-        0,
-        2,
-        0.25
-      ],
+      "uren": [0, 2, 0.25],
       "totaal": 2.25
     },
     {
-      "id": "0714",
+      "id": "54c5",
       "datum": "2024-05-22",
       "dag": "Wo",
-      "uren": [
-        1,
-        4,
-        1
-      ],
-      "totaal": 6
+      "uren": [4, 0, 3.25],
+      "totaal": 7.25
+    },
+    {
+      "id": "2a64",
+      "datum": "2024-05-23",
+      "dag": "Di",
+      "uren": [5, 3, 0.5],
+      "totaal": 8.5
     }
   ]
 }
