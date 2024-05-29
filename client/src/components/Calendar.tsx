@@ -14,21 +14,7 @@ const Calendar = () => {
     }));
     setData(transformedData);
   })();
-
-  const dataRef = [
-    {
-      value: 8,
-      day: "2016-02-06",
-    },
-    {
-      value: 12,
-      day: "2016-12-05",
-    },
-    {
-      value: 6,
-      day: "2016-07-11",
-    },
-  ];
+  // IIFE i.p.v. async functie maken en achteraf callen.
 
   return (
     <div className="calendar-container h-48 w-full mt-10">

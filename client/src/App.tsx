@@ -9,15 +9,17 @@ import NavBar from "./components/NavBar";
 import AddHours from "./pages/AddHours";
 import MainLayout from "./layouts/MainLayout";
 
-const updateHours = async (hours: any, id: string) => {
-  const res = await fetch(`/api/tijden${id}`, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application-json",
-    },
-  });
-  body: JSON.stringify(hours);
-};
+// const updateHours = async (hours: any, id: string) => {
+//   const res = await fetch(`/api/tijden${id}`, {
+//     method: "PUT",
+//     headers: {
+//       "Content-Type": "application-json",
+//     },
+//   });
+//   body: JSON.stringify(hours);
+// };
+
+// Gebruiken we later wel eens
 
 const addHours = async (hours: any) => {
   const res = await fetch("/api/tijden", {

@@ -11,85 +11,15 @@ const AddHours = ({ addHoursSubmit }: any) => {
     return data;
   };
 
-  // const data = fetchTotals().then((value) => {
-  //   console.log("de data is er");
-  //   // "We hebben de data ontvangen, werkt de console log in de globale scope nu wel?"
-  // });
-
-  // const danZo = async () => {
-  //   try {
-  //     const data
-  //   }
-  // }
-  // const fakeData = [
-  //   {
-  //     id: "Geleerd",
-  //     totaal: 3,
-  //   },
-  //   {
-  //     id: "Gewerkt",
-  //     totaal: 2,
-  //   },
-  //   {
-  //     id: "Onderzocht",
-  //     totaal: 1,
-  //   },
-  // ];
-
   let data: any;
   (async () => {
     try {
       data = await fetchTotals();
-      console.log(data);
     } catch {
       console.log("unexpected error");
     }
   })();
-
-  // we hadden ook useState kunnen gebruiken voor het updaten van de pagina, alleen render je opnieuw daarmee een volledig component, nu voeger
-  // useEffect(() => {
-  //   const rangeInput: any = document.getElementById("uren-geleerd");
-  //   const outputParagraph: any = document.getElementById("output-geleerd");
-  //   const rangeInputLeer: any = document.getElementById("uren-gewerkt");
-  //   const outputParagraphLeer: any = document.getElementById("output-gewerkt");
-
-  //   const handleRangeChange = (event: any, nummer: number) => {
-  //     if (nummer == 0) {
-  //       outputParagraph.textContent = event.target.value;
-  //     } else {
-  //       outputParagraphLeer.textContent = event.target.value;
-  //     }
-  //   };
-
-  //   rangeInput.addEventListener("input", (event: any) =>
-  //     handleRangeChange(event, 0)
-  //   );
-  //   rangeInputLeer.addEventListener("input", (event: any) =>
-  //     handleRangeChange(event, 1)
-  //   );
-
-  //   // Cleanup function to remove event listener when changing page by router, since we're using SPA.
-  //   return () => {
-  //     rangeInput.removeEventListener("input", handleRangeChange);
-  //   };
-  //   // return in useEffect weergeeft niets op de pagina, kan een beetje raar voelen maar dit is gewoon cleanup.
-  // }, []);
-  // We gebruiken een lege array om te zeggen tegen React dat het useEffect maar één keer hoeft te worden gebruikt OOIT, zelfs als useState het volledige component opnieuw probeert te laden.
-  // https://dev.to/csituma/why-we-use-empty-array-with-useeffect-iok
-  // Als we de array niet neerzetten zal dat bijvoorbeeld problemen kunnen geven als je in je useEffect data fetched van een API en later met useState probeert te updaten want useState zou het volledige component opnieuw laten renderen waardoor de useState fetch onnodig zou worden.
-
-  // const dynamischRef: any = useRef(null);
-
-  // <div className="flex place-content-center items-center items-stretch">
-  //                 {/* <p id="output-geleerd" className="inline " ref={dynamischRef}> */}
-  //                 <p id="output-geleerd" className="inline">
-  //                   0
-  //                 </p>
-  //               </div>
-
-  // De waarde van een HTMLInputElement wordt altijd gezien als een string, zelfs als je input type gezet is naar nummer! Jammer dan maar gewoon een praseInt gebruiken, je kan als tweede waarde met parseInt een base meegeven zoals 1 of 10
-
-  // Er is vast een betere manier maar ik heb geen zin erin om dit te automatiseren
+  // Async functie die andere functie called (vind ik niet fijn om mee te werken)
 
   const getParagraphValue = (id: string) => {
     return parseInt(
@@ -121,7 +51,7 @@ const AddHours = ({ addHoursSubmit }: any) => {
   const getDatum = () => {
     let today: Date | string = new Date();
     let date: number | string = today.getDay();
-    date = switchDate(date);
+    date = switchDate(date); // Called functie hierboven om de dag te sturen als abbr
     let dd: number | string = today.getDate();
     let mm: number | string = today.getMonth();
     let yyyy: number | string = today.getFullYear();
@@ -173,8 +103,6 @@ const AddHours = ({ addHoursSubmit }: any) => {
         });
       })();
     }
-    console.log(urenArray);
-    console.log(data);
 
     const [today, date] = getDatum();
 
@@ -186,6 +114,7 @@ const AddHours = ({ addHoursSubmit }: any) => {
           totaal: urenTotaal,
         })
       : console.log("Niet vervalsen je data");
+    // Ja we doen hier aan data validatie op de frontend want we zijn te lui om een API te schrijven.
 
     if (!ongeldigeData) {
       addHoursSubmit(obj);
