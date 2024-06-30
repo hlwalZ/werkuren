@@ -29,6 +29,8 @@ const AddHours = ({ addHoursSubmit }: any) => {
 
   const switchDate = (date: number) => {
     switch (date) {
+      case 0:
+        return "Zo";
       case 1:
         return "Ma";
       case 2:
@@ -41,8 +43,6 @@ const AddHours = ({ addHoursSubmit }: any) => {
         return "Vr";
       case 6:
         return "Za";
-      case 7:
-        return "Zo";
       default:
         return "Go Cry TypeScript, also the world exploded because there is no day";
     }
