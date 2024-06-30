@@ -2,11 +2,11 @@
   "totaal": [
     {
       "id": "Geleerd",
-      "totaal": 4
+      "totaal": 8
     },
     {
       "id": "Gewerkt",
-      "totaal": 22
+      "totaal": 24
     },
     {
       "id": "Onderzocht",
@@ -18,43 +18,89 @@
       "id": "1694",
       "datum": "2024-05-16",
       "dag": "Do",
-      "uren": [1, 6, 0],
+      "uren": [
+        1,
+        6,
+        0
+      ],
       "totaal": 7
     },
     {
       "id": "1694",
       "datum": "2024-05-17",
       "dag": "Vr",
-      "uren": [1, 5, 1],
+      "uren": [
+        1,
+        5,
+        1
+      ],
       "totaal": 7
     },
     {
       "id": "09f5",
       "datum": "2024-05-18",
       "dag": "Za",
-      "uren": [0, 1, 0],
+      "uren": [
+        0,
+        1,
+        0
+      ],
       "totaal": 1
     },
     {
       "id": "1f51",
       "datum": "2024-05-20",
       "dag": "Ma",
-      "uren": [0, 2, 0.25],
+      "uren": [
+        0,
+        2,
+        0.25
+      ],
       "totaal": 2.25
     },
     {
       "id": "0714",
       "datum": "2024-05-22",
       "dag": "Wo",
-      "uren": [1, 4, 1],
+      "uren": [
+        1,
+        4,
+        1
+      ],
       "totaal": 6
     },
     {
       "id": "bfeb",
       "datum": "2024-05-27",
       "dag": "Wo",
-      "uren": [1, 5, 2],
+      "uren": [
+        1,
+        5,
+        2
+      ],
       "totaal": 8
+    },
+    {
+      "id": "63bc",
+      "datum": "2024-06-26",
+      "dag": "Wo",
+      "uren": [
+        4,
+        0,
+        0
+      ],
+      "totaal": 4
+    },
+    {
+      "id": "de5f",
+      "datum": "2024-06-30",
+      "dag": "Go Cry TypeScript, also the world exploded because there is no day",
+      "uren": [
+        0,
+        2,
+        0
+      ],
+      "totaal": 2
     }
   ]
 }
